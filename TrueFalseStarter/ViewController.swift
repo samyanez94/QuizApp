@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
     
-    let questionsPerRound = 4
+    let questionsPerRound = 5
     var questionsAsked = 0
     var correctQuestions = 0
     
