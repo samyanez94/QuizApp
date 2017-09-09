@@ -10,14 +10,20 @@ import Foundation
 
 class Score {
     
-    fileprivate var points: Int = 0
-    
-    func add(points: Int) {
-        self.points += points
+    fileprivate var questionsAsked: Int = 0
+    fileprivate var correctAnswers: Int = 0
+    fileprivate var incorrectAnswers: Int = 0
+
+    func incrementCorrectAnswers() {
+        correctAnswers += 1
     }
     
-    func getPoints() -> Int {
-        return points
+    func incrementIncorrectAnswers() {
+        incorrectAnswers += 1
+    }
+    
+    func getScore() -> String {
+        return "Way to go!\nYou got \(correctAnswers) out of \(questionsAsked) correct!"
     }
     
 }
