@@ -12,17 +12,16 @@ import AudioToolbox
 
 class ViewController: UIViewController {
     
-    let questionsPerRound = 4
-    var questionsAsked = 0
-    var correctQuestions = 0
-    var indexOfSelectedQuestion: Int = 0
-    
-    var gameSound: SystemSoundID = 0
-    
     @IBOutlet weak var questionField: UILabel!
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     @IBOutlet weak var playAgainButton: UIButton!
+    
+    let questionsPerRound = 4
+    var questionsAsked = 0
+    var correctQuestions = 0
+    
+    var gameSound: SystemSoundID = 0
     
     let questions = QuestionModel()
     var currentQuestion: Question? = nil
