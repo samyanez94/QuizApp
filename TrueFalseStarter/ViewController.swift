@@ -13,98 +13,107 @@ import AudioToolbox
 class ViewController: UIViewController {
     
     @IBOutlet weak var questionField: UILabel!
-    @IBOutlet weak var trueButton: UIButton!
-    @IBOutlet weak var falseButton: UIButton!
-    @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet weak var feedbackField: UILabel!
+    @IBOutlet weak var firstChoiceButton: UIButton!
+    @IBOutlet weak var secondChoiceButton: UIButton!
+    @IBOutlet weak var thirdChoiceButton: UIButton!
+    @IBOutlet weak var fourthChoiceButton: UIButton!
+    @IBOutlet weak var nextQuestionButton: UIButton!
     
-    let questionsPerRound = 5
-    var questionsAsked = 0
-    var correctQuestions = 0
+    var questions = QuestionModel()
+    let score = ScoreModel()
     
-    var gameSound: SystemSoundID = 0
-    
-    let questions = QuestionModel()
+    let numberOfQuestionPerRound = 5
     var currentQuestion: Question? = nil
 
+    var gameSound: SystemSoundID = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadGameStartSound()
         playGameStartSound()
         displayQuestion()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func displayQuestion() {
-        currentQuestion = questions.getRandomQuestion()
-        if let question = currentQuestion {
-            questionField.text = question.getInterrogative()
-        }
-        playAgainButton.isHidden = true
+    func isGameOver() -> Bool {
+        return score.getQuestionsAsked() >= 5
     }
     
-    func displayScore() {
-        // Hide the answer buttons
-        trueButton.isHidden = true
-        falseButton.isHidden = true
+    func displayQuestion() {
+        currentQuestion = questions.getRandomQuestion()
         
-        // Display play again button
-        playAgainButton.isHidden = false
+        if let question = currentQuestion {
+            let choices = question.getChoices()
+            
+            questionField.text = question.getInterrogative()
+            firstChoiceButton.setTitle(choices[0], for: .normal)
+            secondChoiceButton.setTitle(choices[1], for: .normal)
+            thirdChoiceButton.setTitle(choices[2], for: .normal)
+            fourthChoiceButton.setTitle(choices[3], for: .normal)
+            nextQuestionButton.setTitle("Next Question", for: .normal)
+        }
         
-        questionField.text = "Way to go!\nYou got \(correctQuestions) out of \(questionsPerRound) correct!"
-        
+        firstChoiceButton.isEnabled = true
+        secondChoiceButton.isEnabled = true
+        thirdChoiceButton.isEnabled = true
+        fourthChoiceButton.isEnabled = true
+
+        firstChoiceButton.isHidden = false
+        secondChoiceButton.isHidden = false
+        thirdChoiceButton.isHidden = false
+        fourthChoiceButton.isHidden = false
+        feedbackField.isHidden = true
+
+        nextQuestionButton.isEnabled = false
     }
     
     @IBAction func checkAnswer(_ sender: UIButton) {
-        if let question = currentQuestion {
-            if (sender === trueButton &&  question.getAnswer() == true) || (sender === falseButton && question.getAnswer() == false) {
-                
-                    correctQuestions += 1
-                    questionField.text = "Correct!"
-                } else {
-                    questionField.text = "Sorry, wrong answer!"
-                }
-                loadNextRoundWithDelay(seconds: 2)
+        if let question = currentQuestion, let answer = sender.titleLabel?.text {
+            
+            if (question.valiateAnswer(to: answer)) {
+                score.incrementCorrectAnswers()
+                feedbackField.textColor = UIColor(red:0.15, green:0.61, blue:0.61, alpha:1.0)
+                feedbackField.text = "Correct!"
+            } else {
+                score.incrementIncorrectAnswers()
+                feedbackField.textColor = UIColor(red:0.82, green:0.40, blue:0.26, alpha:1.0)
+                feedbackField.text = "Sorry, that's not it."
+            }
+            firstChoiceButton.isEnabled = false
+            secondChoiceButton.isEnabled = false
+            thirdChoiceButton.isEnabled = false
+            fourthChoiceButton.isEnabled = false
+            nextQuestionButton.isEnabled = true
+            
+            feedbackField.isHidden = false
         }
     }
     
-    func nextRound() {
-        if questionsAsked == questionsPerRound {
-            // Game is over
+    @IBAction func nextQuestionTapped(_ sender: Any) {
+        if (isGameOver()) {
             displayScore()
         } else {
-            // Continue game
             displayQuestion()
         }
     }
     
-    @IBAction func playAgain() {
-        // Show the answer buttons
-        trueButton.isHidden = false
-        falseButton.isHidden = false
+    func displayScore() {
+        questionField.text = score.getScore()
+        score.reset()
+        nextQuestionButton.setTitle("Play again", for: .normal)
         
-        questionsAsked = 0
-        correctQuestions = 0
-        nextRound()
+        feedbackField.isHidden = true
+        firstChoiceButton.isHidden = true
+        secondChoiceButton.isHidden = true
+        thirdChoiceButton.isHidden = true
+        fourthChoiceButton.isHidden = true
     }
     
-
-    
-    // MARK: Helper Methods
-    
-    func loadNextRoundWithDelay(seconds: Int) {
-        // Converts a delay in seconds to nanoseconds as signed 64 bit integer
-        let delay = Int64(NSEC_PER_SEC * UInt64(seconds))
-        // Calculates a time value to execute the method given current time and delay
-        let dispatchTime = DispatchTime.now() + Double(delay) / Double(NSEC_PER_SEC)
-        
-        // Executes the nextRound method at the dispatch time on the main queue
-        DispatchQueue.main.asyncAfter(deadline: dispatchTime) {
-            self.nextRound()
-        }
-    }
+    // MARK: Sounds
     
     func loadGameStartSound() {
         let pathToSoundFile = Bundle.main.path(forResource: "GameSound", ofType: "wav")
@@ -116,4 +125,3 @@ class ViewController: UIViewController {
         AudioServicesPlaySystemSound(gameSound)
     }
 }
-

@@ -42,14 +42,20 @@ struct QuestionModel {
     }
 }
 
-struct Question {
+class Question {
     
     fileprivate let interrogative: String
     fileprivate let answers: [String]
     fileprivate let correctAnswerIndex: Int
     
-    func valiateAnswer(to givenAnswer: Int) -> Bool {
-        return (givenAnswer == correctAnswerIndex)
+    init(interrogative: String, answers: [String], correctAnswerIndex: Int) {
+        self.interrogative = interrogative
+        self.answers = answers
+        self.correctAnswerIndex = correctAnswerIndex
+    }
+    
+    func valiateAnswer(to givenAnswer: String) -> Bool {
+        return (givenAnswer == answers[correctAnswerIndex])
     }
     
     func getInterrogative() -> String {
@@ -60,7 +66,7 @@ struct Question {
         return answers[correctAnswerIndex]
     }
     
-    func getAnswers() -> [String] {
+    func getChoices() -> [String] {
         return answers
     }
     

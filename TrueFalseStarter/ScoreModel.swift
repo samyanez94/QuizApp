@@ -8,11 +8,15 @@
 
 import Foundation
 
-class Score {
+class ScoreModel {
     
-    fileprivate var questionsAsked: Int = 0
     fileprivate var correctAnswers: Int = 0
     fileprivate var incorrectAnswers: Int = 0
+    
+    func reset() {
+        correctAnswers = 0
+        incorrectAnswers = 0
+    }
 
     func incrementCorrectAnswers() {
         correctAnswers += 1
@@ -22,8 +26,19 @@ class Score {
         incorrectAnswers += 1
     }
     
-    func getScore() -> String {
-        return "Way to go!\nYou got \(correctAnswers) out of \(questionsAsked) correct!"
+    func getQuestionsAsked() -> Int {
+        return correctAnswers + incorrectAnswers
     }
     
+    func getScore() -> String {
+        let percentaile = Double(correctAnswers) / Double(getQuestionsAsked())
+        
+        if (percentaile > 0.75) {
+            return "Way to go!\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct!"
+        } else if (percentaile > 0.5) {
+            return "Nice job!\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct!"
+        } else {
+            return "You can do better.\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct!"
+        }
+    }
 }
