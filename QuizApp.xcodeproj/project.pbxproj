@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		22967D8C1F5EFF34006B68CA /* QuestionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionModel.swift; sourceTree = "<group>"; };
 		22967D8E1F5F9F29006B68CA /* ScoreModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreModel.swift; sourceTree = "<group>"; };
-		97093D381C913506001275BC /* TrueFalseStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrueFalseStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		97093D381C913506001275BC /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97093D3B1C913506001275BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97093D3D1C913506001275BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		97093D401C913506001275BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		97093D2F1C913506001275BC = {
 			isa = PBXGroup;
 			children = (
-				97093D3A1C913506001275BC /* TrueFalseStarter */,
+				97093D3A1C913506001275BC /* QuizApp */,
 				97093D391C913506001275BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,12 +52,12 @@
 		97093D391C913506001275BC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				97093D381C913506001275BC /* TrueFalseStarter.app */,
+				97093D381C913506001275BC /* QuizApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		97093D3A1C913506001275BC /* TrueFalseStarter */ = {
+		97093D3A1C913506001275BC /* QuizApp */ = {
 			isa = PBXGroup;
 			children = (
 				97093D3B1C913506001275BC /* AppDelegate.swift */,
@@ -70,15 +70,15 @@
 				97093D521C932116001275BC /* GameSound.wav */,
 				97093D421C913506001275BC /* Assets.xcassets */,
 			);
-			path = TrueFalseStarter;
+			path = QuizApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		97093D371C913506001275BC /* TrueFalseStarter */ = {
+		97093D371C913506001275BC /* QuizApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 97093D4A1C913506001275BC /* Build configuration list for PBXNativeTarget "TrueFalseStarter" */;
+			buildConfigurationList = 97093D4A1C913506001275BC /* Build configuration list for PBXNativeTarget "QuizApp" */;
 			buildPhases = (
 				97093D341C913506001275BC /* Sources */,
 				97093D351C913506001275BC /* Frameworks */,
@@ -88,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = TrueFalseStarter;
-			productName = TrueFalseStarter;
-			productReference = 97093D381C913506001275BC /* TrueFalseStarter.app */;
+			name = QuizApp;
+			productName = QuizApp;
+			productReference = 97093D381C913506001275BC /* QuizApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -109,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 97093D331C913506001275BC /* Build configuration list for PBXProject "TrueFalseStarter" */;
+			buildConfigurationList = 97093D331C913506001275BC /* Build configuration list for PBXProject "QuizApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -122,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				97093D371C913506001275BC /* TrueFalseStarter */,
+				97093D371C913506001275BC /* QuizApp */,
 			);
 		};
 /* End PBXProject section */
@@ -281,9 +281,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TrueFalseStarter/Info.plist;
+				INFOPLIST_FILE = QuizApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.TrueFalseStarter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.QuizApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -294,9 +294,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = TrueFalseStarter/Info.plist;
+				INFOPLIST_FILE = QuizApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.TrueFalseStarter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.QuizApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -306,7 +306,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		97093D331C913506001275BC /* Build configuration list for PBXProject "TrueFalseStarter" */ = {
+		97093D331C913506001275BC /* Build configuration list for PBXProject "QuizApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97093D481C913506001275BC /* Debug */,
@@ -315,7 +315,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		97093D4A1C913506001275BC /* Build configuration list for PBXNativeTarget "TrueFalseStarter" */ = {
+		97093D4A1C913506001275BC /* Build configuration list for PBXNativeTarget "QuizApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				97093D4B1C913506001275BC /* Debug */,
