@@ -1,6 +1,6 @@
 //
 //  QuizController.swift
-//  TrueFalseStarter
+//  QuizApp
 //
 //  Created by Samuel Yanez on 9/9/17.
 //  Copyright © 2017 Treehouse. All rights reserved.

@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  TrueFalseStarter
+//  QuizApp
 //
-//  Created by Pasan Premaratne on 3/9/16.
-//  Copyright © 2016 Treehouse. All rights reserved.
+//  Created by Samuel Yanez on 10/12/17.
+//  Copyright © 2017 Samuel Yanez. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         return true
     }
-
-
 }
-

@@ -1,9 +1,9 @@
 //
 //  ScoreModel.swift
-//  TrueFalseStarter
+//  QuizApp
 //
-//  Created by Samuel Yanez on 9/5/17.
-//  Copyright © 2017 Treehouse. All rights reserved.
+//  Created by Samuel Yanez on 10/12/17.
+//  Copyright © 2017 Samuel Yanez. All rights reserved.
 //
 
 import Foundation
@@ -34,11 +34,11 @@ class ScoreModel {
         let percentaile = Double(correctAnswers) / Double(getQuestionsAsked())
         
         if (percentaile > 0.75) {
-            return "Way to go!\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct!"
+            return "Way to go!\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct answers!"
         } else if (percentaile > 0.5) {
-            return "Nice job!\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct!"
+            return "Nice job!\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct answers!"
         } else {
-            return "You can do better.\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct!"
+            return "You can do better.\n You got \(correctAnswers) out of \(getQuestionsAsked()) correct answers!"
         }
     }
 }
