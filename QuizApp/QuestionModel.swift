@@ -1,9 +1,9 @@
 //
 //  QuestionModel.swift
-//  TrueFalseStarter
+//  QuizApp
 //
-//  Created by Samuel Yanez on 9/5/17.
-//  Copyright © 2017 Treehouse. All rights reserved.
+//  Created by Samuel Yanez on 10/12/17.
+//  Copyright © 2017 Samuel Yanez. All rights reserved.
 //
 
 import GameKit
@@ -54,7 +54,7 @@ class Question {
         self.correctAnswerIndex = correctAnswerIndex
     }
     
-    func valiateAnswer(to givenAnswer: String) -> Bool {
+    func validateAnswer(to givenAnswer: String) -> Bool {
         return (givenAnswer == answers[correctAnswerIndex])
     }
     
